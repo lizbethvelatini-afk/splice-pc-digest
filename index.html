@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splice P&C Strategic Digest — Q2 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.6;color:#1a1a1a;background:#f5f4f1;padding:32px 16px}
+  .page{max-width:940px;margin:0 auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+
+  /* COVER */
+  .cover{background:#111;color:white;padding:48px 48px 40px}
+  .cover-logo{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+  .logo-sq{width:36px;height:36px;background:#2a2a2a;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .logo-sq svg{width:22px;height:22px}
+  .cover-brand{font-size:18px;font-weight:600;letter-spacing:-.02em}
+  .cover-title{font-size:30px;font-weight:600;letter-spacing:-.03em;margin-bottom:8px}
+  .cover-sub{font-size:14px;color:#777;margin-bottom:32px}
+  .cover-meta{display:flex;gap:24px;flex-wrap:wrap;border-top:1px solid #222;padding-top:20px}
+  .cover-meta-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#555;margin-bottom:3px}
+  .cover-meta-value{font-size:13px;color:#bbb}
+
+  /* TABS */
+  .tabs{display:flex;border-bottom:1px solid #e8e8e8;background:#fafaf8;position:sticky;top:0;z-index:10;overflow-x:auto}
+  .tab{padding:13px 20px;font-size:12px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s}
+  .tab:hover{color:#333}
+  .tab.active{color:#111;border-bottom-color:#111}
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+
+  /* BODY */
+  .body{padding:36px 48px}
+  .section-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#888;padding-bottom:10px;margin:28px 0 16px;border-bottom:1px solid #e8e8e8}
+  .section-title:first-of-type{margin-top:0}
+
+  /* PULSE */
+  .pulse-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .pulse-card{background:#f9f8f5;border-radius:8px;padding:14px 16px}
+  .pulse-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#999;margin-bottom:4px}
+  .pulse-value{font-size:20px;font-weight:600;color:#111}
+  .pulse-sub{font-size:11px;color:#888;margin-top:2px}
+
+  /* SPOTLIGHT */
+  .spotlight{background:#f0faf5;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:20px;font-size:13px;color:#1a1a1a;line-height:1.6}
+  .spotlight-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#0F6E56;margin-bottom:5px}
+
+  /* WEEKLY TEAM CARDS */
+  .team-card{border:1px solid #ebebeb;border-radius:10px;margin-bottom:12px;overflow:hidden}
+  .team-card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+  .team-card-left{display:flex;align-items:center;gap:12px}
+  .team-icon{width:32px;height:32px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .team-name{font-size:13px;font-weight:600;color:#111}
+  .team-owner{font-size:11px;color:#999;margin-top:1px}
+  .status-pill{font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .s-ship{background:#EAF3DE;color:#3B6D11}
+  .s-sprint{background:#FAEEDA;color:#854F0B}
+  .s-pmf{background:#E6F1FB;color:#185FA5}
+  .s-grow{background:#E1F5EE;color:#0F6E56}
+  .team-card-body{padding:0 18px 16px;border-top:1px solid #f0f0f0;background:#fafafa}
+  .points{margin-top:12px}
+  .point{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid #efefef;font-size:12.5px;color:#222;line-height:1.5}
+  .point:last-of-type{border-bottom:none}
+  .dot{width:5px;height:5px;border-radius:50%;background:#ccc;margin-top:7px;flex-shrink:0}
+  .dot.g{background:#1D9E75}
+  .dot.a{background:#BA7517}
+  .pc-note{background:#f0faf5;border:1px solid #C0DD97;border-radius:6px;padding:10px 14px;margin-top:12px}
+  .pc-note-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#3B6D11;margin-bottom:4px}
+  .pc-note-text{font-size:12px;color:#2a4a2a;line-height:1.55}
+
+  /* PERSON GOAL SECTIONS */
+  .person-block{margin-bottom:32px}
+  .person-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #111}
+  .person-avatar{width:38px;height:38px;border-radius:50%;background:#111;color:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;flex-shrink:0}
+  .person-name{font-size:16px;font-weight:600;color:#111}
+  .person-role{font-size:12px;color:#888;margin-top:1px}
+  .goal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:4px}
+  .goal-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px}
+  .goal-card{border:1px solid #ebebeb;border-radius:8px;padding:14px 16px;background:#fff}
+  .goal-num{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#bbb;margin-bottom:4px}
+  .goal-title{font-size:12.5px;font-weight:600;color:#111;margin-bottom:5px;line-height:1.4}
+  .goal-timing{font-size:11px;color:#888;margin-bottom:10px}
+  .progress-bar{height:5px;background:#ebebeb;border-radius:3px;overflow:hidden;margin-bottom:4px}
+  .progress-fill{height:100%;border-radius:3px}
+  .progress-label{font-size:10px;color:#888;margin-bottom:10px}
+  .signal-box{background:#FFF8ED;border:1px solid #F5D895;border-radius:6px;padding:9px 12px;margin-top:auto}
+  .signal-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#7A4F05;margin-bottom:3px}
+  .signal-text{font-size:11px;color:#5A3A00;line-height:1.5}
+  .goal-card-inner{display:flex;flex-direction:column;height:100%}
+
+  /* STATUS TAGS */
+  .tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;margin:0 2px;white-space:nowrap}
+  .tag-team{background:#f0f0f0;color:#555}
+  .tag-goal{background:#E6F1FB;color:#185FA5}
+  .tag-warn{background:#FAEEDA;color:#854F0B}
+  .tag-green{background:#EAF3DE;color:#3B6D11}
+  .tag-red{background:#FCEBEB;color:#A32D2D}
+
+  /* STRATEGIC RECS */
+  .rec-card{border:1px solid #ebebeb;border-radius:10px;margin-bottom:14px;overflow:hidden}
+  .rec-header{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:#fff}
+  .rec-number{width:28px;height:28px;border-radius:6px;background:#111;color:white;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .rec-title{font-size:14px;font-weight:600;color:#111;margin-bottom:4px}
+  .rec-meta{font-size:11px;color:#888}
+  .rec-body{border-top:1px solid #f0f0f0;background:#fafafa;padding:16px 20px}
+  .rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .rec-col-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:6px}
+  .rec-item{font-size:12.5px;color:#333;padding:4px 0;border-bottom:1px solid #efefef;line-height:1.45;display:flex;gap:8px}
+  .rec-item:last-child{border-bottom:none}
+  .action-box{background:#F0F4FF;border:1px solid #C5D2F5;border-radius:6px;padding:12px 14px}
+  .action-box-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#2D4FAA;margin-bottom:6px}
+  .action-item{font-size:12px;color:#1a2f70;padding:5px 0;border-bottom:1px solid #d5dffa;line-height:1.5;display:flex;gap:8px}
+  .action-item:last-child{border-bottom:none}
+  .action-num{font-weight:600;color:#2D4FAA;flex-shrink:0}
+
+  /* FOOTER */
+  .doc-footer{border-top:1px solid #e8e8e8;margin:28px 48px 0;padding:14px 0 28px;display:flex;justify-content:space-between;align-items:center}
+  .footer-left{font-size:11px;color:#aaa}
+  .footer-left a{color:#888;text-decoration:none}
+  .confidential{display:inline-block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;background:#f0f0f0;color:#888;padding:3px 10px;border-radius:20px}
+
+  @media print{body{background:white;padding:0}.page{box-shadow:none;border-radius:0}.tabs{position:static}.tab-content{display:block!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <div class="logo-sq"><svg viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="8" height="8" rx="2" fill="white"/><rect x="12" y="2" width="8" height="8" rx="2" fill="white" opacity=".55"/><rect x="2" y="12" width="8" height="8" rx="2" fill="white" opacity=".55"/><rect x="12" y="12" width="8" height="8" rx="2" fill="white" opacity=".25"/></svg></div>
+    <div class="cover-brand">Splice</div>
+  </div>
+  <div class="cover-title">People &amp; Culture Strategic Digest</div>
+  <div class="cover-sub">Weekly business intelligence · Q2 goal tracking · Strategic recommendations</div>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="cover-meta-label">Period</div><div class="cover-meta-value">Q2 2026 · Week of April 24</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Sources</div><div class="cover-meta-value">#weeknotes · #weeknotes-instruments · P&amp;C 2026 Planning</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Team</div><div class="cover-meta-value">Liz · Courtney · Marissa · Melanie</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Classification</div><div class="cover-meta-value">P&amp;C team only</div></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('weekly',this)">📡 Weekly Snapshot</div>
+  <div class="tab" onclick="switchTab('goals',this)">🎯 Q2 Goal Tracker</div>
+  <div class="tab" onclick="switchTab('strategy',this)">🧭 Strategic Focus</div>
+</div>
+
+<!-- ══════════════ WEEKLY ══════════════ -->
+<div id="tab-weekly" class="tab-content active">
+<div class="body">
+  <div class="pulse-grid">
+    <div class="pulse-card"><div class="pulse-label">Key milestone</div><div class="pulse-value">May 1</div><div class="pulse-sub">Canvas launch</div></div>
+    <div class="pulse-card"><div class="pulse-label">Teams active</div><div class="pulse-value">6</div><div class="pulse-sub">All shipping or sprinting</div></div>
+    <div class="pulse-card"><div class="pulse-label">Open hire</div><div class="pulse-value">Active</div><div class="pulse-sub">ML Data &amp; Model Eval</div></div>
+    <div class="pulse-card"><div class="pulse-label">BU All Hands</div><div class="pulse-value">Apr 27</div><div class="pulse-sub">Instruments BU</div></div>
+  </div>
+
+  <div class="spotlight">
+    <div class="spotlight-label">This week's headline for P&amp;C</div>
+    Six teams are in simultaneous execution sprints. Canvas hits a hard May 1 deadline under sustained team pressure. The Instruments BU All Hands on Monday may surface org changes. Flow/Aura's PMF decision this week determines whether a hiring conversation opens in May. For P&amp;C, this week is about staying ahead of org change, supporting teams under pressure, and capturing business intelligence before you're asked to react.
+  </div>
+
+  <div class="section-title">Business snapshot — week of April 24</div>
+
+  <div class="team-card">
+    <div class="team-card-header">
+      <div class="team-card-left"><div class="team-icon" style="background:#EEEDFE">🤖</div><div><div class="team-name">ML R&amp;D &amp; AI Foundations</div><div class="team-owner">Andy Thompson · Alejandro Koretzky</div></div></div>
+      <span class="status-pill s-ship">Shipping</span>
+    </div>
+    <div class="team-card-body">
+      <div class="points">
+        <div class="point"><div class="dot g"></div><div>SpliceGen v2.5 live in production — powering Variations (300K checkpoint) and Magic Fit (600K checkpoint), meaningful quality gains over v2.0.</div></div>
+        <div class="point"><div class="dot g"></div><div>Pipeline Designer launched — a Claude Code/Cursor tool letting anyone at Splice prototype new AI features without engineering support. AI enablement across functions, in practice.</div></div>
+        <div class="point"><div class="dot"></div><div>Audio description model eval across 9 models (Gemini, GPT, Qwen) completed. Gemini Flash Lite 3.1 performing best.</div></div>
+        <div class="point"><div class="dot"></div><div>SLAP-V2 (semantic search) and Vocal Continuity R&amp;D underway.</div></div>
+      </div>
+      <div class="pc-note"><div class="pc-note-label">P&amp;C signal</div><div class="pc-note-text"><strong>Courtney/Melanie (AI Adoption):</strong> Pipeline Designer is the clearest internal proof point for the Practice Leads Program — ML team is normalizing agentic AI across functions. Use this as the anchor case this week. <strong>Liz (TA):</strong> ML Data &amp; Model Eval Engineer in active interviews; Alejandro's cap of max 2 external hires per 6 months applies.</div></div>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-card-header">
+      <div class="team-card-left"><div class="team-icon" style="background:#FAEEDA">🎛️</div><div><div class="team-name">Canvas</div><div class="team-owner">Evan Dhillon</div></div></div>
+      <span class="status-pill s-sprint">Crunch sprint</span>
+    </div>
+    <div class="team-card-body">
+      <div class="points">
+        <div class="point"><div class="dot a"></div><div>Full team in crunch toward May 1 "marketable app" milestone — 3 usability improvement cycles per week (Mon/Wed/Fri).</div></div>
+        <div class="point"><div class="dot"></div><div>Features temporarily cut from May 1: Aura, Generate Section, Variations, Voice cloning. All returning post-launch.</div></div>
+        <div class="point"><div class="dot g"></div><div>SpliceGen v2.5 endpoint testing in Canvas staging — described as "a big deal" for generative stem generation. Post-May 1 roadmap drafting kicked off.</div></div>
+      </div>
+      <div class="pc-note"><div class="pc-note-label">P&amp;C signal</div><div class="pc-note-text"><strong>Marissa (HRBP):</strong> Canvas is the highest-pressure team this week. Scope cuts + hard deadlines are early attrition risk signals. A temperature check with Evan around May 1 is good timing. <strong>Liz (TA):</strong> Post-May 1 roadmap drafting = ideal window for a listening tour conversation with Evan in early May.</div></div>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-card-header">
+      <div class="team-card-left"><div class="team-icon" style="background:#E6F1FB">🌊</div><div><div class="team-name">Flow &amp; Aura</div><div class="team-owner">Justin Sun</div></div></div>
+      <span class="status-pill s-pmf">PMF check this week</span>
+    </div>
+    <div class="team-card-body">
+      <div class="points">
+        <div class="point"><div class="dot a"></div><div>End-of-April PMF decision: if 40%+ of SoundCheck testers say "very disappointed" if Aura went away → team scales from ~100 to 1K–10K users. Headcount implications follow.</div></div>
+        <div class="point"><div class="dot"></div><div>Strategy locked: Aura is the product. Flow is the surface. Not building a DAW — building an AI creative partner for music.</div></div>
+        <div class="point"><div class="dot"></div><div>Hybrid search (tag + semantic) shipped. Onboarding redesign in progress — current flow too long, users drop after first sample.</div></div>
+      </div>
+      <div class="pc-note"><div class="pc-note-label">P&amp;C signal</div><div class="pc-note-text"><strong>Liz + Marissa:</strong> PMF result this week drives Q2/Q3 headcount trajectory. If threshold is hit, a hiring conversation from Justin is likely in May. Knowing this now — before the req opens — is exactly what proactive P&amp;C partnership looks like.</div></div>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-card-header">
+      <div class="team-card-left"><div class="team-icon" style="background:#FBEAF0">🎹</div><div><div class="team-name">INSTRUMENT &amp; Spitfire Audio</div><div class="team-owner">Stanley Gabriel · Elliot Greenhill</div></div></div>
+      <span class="status-pill s-ship">Shipping</span>
+    </div>
+    <div class="team-card-body">
+      <div class="points">
+        <div class="point"><div class="dot g"></div><div>Braze enablement shipped — first lifecycle messaging in INSTRUMENT. 4 flows now in implementation.</div></div>
+        <div class="point"><div class="dot g"></div><div>File Management shipped — detects 137 libraries across LABS+ and Spitfire Audio installs.</div></div>
+        <div class="point"><div class="dot a"></div><div>Instruments BU All Hands: Monday April 27 — operating model refinements incoming. Org structure may shift.</div></div>
+        <div class="point"><div class="dot"></div><div>Content pipeline active: Boombox FM, Trap Toolkit (June 11), Dark Fantasy (end of May).</div></div>
+      </div>
+      <div class="pc-note"><div class="pc-note-label">P&amp;C signal</div><div class="pc-note-text"><strong>All P&amp;C:</strong> Apr 27 All Hands may surface org changes relevant to structure, spans, or new role needs — stay close. <strong>Liz:</strong> Highest-priority team to document in Notion this Q2. <strong>Melanie:</strong> SFA UK onboarding/offboarding work directly relevant as INSTRUMENT BU grows.</div></div>
+    </div>
+  </div>
+
+  <div class="team-card">
+    <div class="team-card-header">
+      <div class="team-card-left"><div class="team-icon" style="background:#EAF3DE">📈</div><div><div class="team-name">Revenue Growth</div><div class="team-owner">Ajay Laxman</div></div></div>
+      <span class="status-pill s-grow">Growing</span>
+    </div>
+    <div class="team-card-body">
+      <div class="points">
+        <div class="point"><div class="dot g"></div><div>7-Day Ramp experiment ($0.99 / 7 days / 30 credits) launching next week — biggest Q2 subscriber acquisition lever.</div></div>
+        <div class="point"><div class="dot a"></div><div>Pricing decision ~May 1: choosing between $19.99, $21.99, and $24.99 for the Creator plan based on M3 retention data.</div></div>
+        <div class="point"><div class="dot g"></div><div>Sounds Plugin paid media fully unblocked. Google Pay testing starts mid-next-week. Backup Payment Method project kicked off.</div></div>
+      </div>
+      <div class="pc-note"><div class="pc-note-label">P&amp;C signal</div><div class="pc-note-text"><strong>Liz (TA):</strong> Multiple simultaneous growth experiments = strong business health signal to share with candidates. The FTQS target of 233,900 for 2026 is context that shows business depth when used in intake conversations.</div></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════ Q2 GOAL TRACKER ══════════════ -->
+<div id="tab-goals" class="tab-content">
+<div class="body">
+
+  <div class="spotlight">
+    <div class="spotlight-label">How this works</div>
+    Each person's Q2 initiatives are shown with a status, progress estimate, and a "Business Signal" callout — showing where what happened in the business this week creates a direct opportunity, risk, or momentum for that specific goal. Insights become action.
+  </div>
+
+  <!-- LIZ -->
+  <div class="person-block">
+    <div class="person-header">
+      <div class="person-avatar">L</div>
+      <div><div class="person-name">Liz Velatini</div><div class="person-role">Senior Talent Acquisition Manager</div></div>
+    </div>
+
+    <div class="goal-grid">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-warn">Medium</span></div>
+          <div class="goal-title">Consistent Hiring Rituals &amp; Team Discipline</div>
+          <div class="goal-timing">Standardized kickoffs, debriefs, retros · comp alignment on every req · career frameworks at kickoff</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~50%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Flow/Aura PMF result may open a new req soon — ideal moment to pilot the new kickoff format with Justin Sun before the role is even posted.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-warn">Medium</span></div>
+          <div class="goal-title">Drive AI Adoption Across TA Workflows</div>
+          <div class="goal-timing">Pilot use cases · team playbook · 70%+ adoption target</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:55%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~55%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">ML team launched Pipeline Designer this week — Splice normalizing agentic AI use across all functions, not just engineering. Use this in the team playbook as proof the company is moving in this direction. This digest is already a documented AI workflow artifact.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Build a Data-Driven TA Function (Recruiting Dashboard)</div>
+          <div class="goal-timing">Dashboard live with GH + BambooHR data · KPIs defined · team trained · monthly P&amp;C insights shared</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:30%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~30%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Growth team is running 5+ simultaneous experiments with real-time data. That's the internal standard for data-driven decision making — use it as the benchmark when scoping the dashboard with the data team.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="goal-grid" style="margin-top:12px">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Talent Brand</div>
+          <div class="goal-timing">Employer narrative finalized · careers page refreshed · recruiter one-pager · interviewer alignment</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:35%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — Q2 deadline end of June (8 weeks)</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Variations launch + Mark Thomas' public LinkedIn statement on attribution = the freshest, most differentiated AI brand story available. Capture it now. This is the AI/ML EVP anchor and it won't stay this fresh.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-warn">Medium</span></div>
+          <div class="goal-title">UK Hiring Full Operationalization</div>
+          <div class="goal-timing">Employment agreements in GH · UK benefits brochure complete · FAQ published · SFA branded GH</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~60%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">INSTRUMENT/SFA All Hands Apr 27 may surface UK-based role needs as early as this week. Confirm employment agreements and offer template are ready to activate quickly.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-red">Not Started</span></div>
+          <div class="goal-title">Deepen TA Business Acumen &amp; Engineering Partnership</div>
+          <div class="goal-timing">Engineering org profiles in Notion · enables recruiters to operate with confidence · recruiter-facing team context</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:10%;background:#E24B4A"></div></div>
+          <div class="progress-label">Not Started → start this week</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Three natural listening tour windows are open simultaneously right now: Stanley (post Apr 27 All Hands), Evan (post May 1), Justin (post PMF result). These windows won't align again. Schedule all three before Friday.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COURTNEY -->
+  <div class="person-block">
+    <div class="person-header">
+      <div class="person-avatar">C</div>
+      <div><div class="person-name">Courtney</div><div class="person-role">People Business Partner / L&amp;D</div></div>
+    </div>
+
+    <div class="goal-grid">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">2026 Engagement Survey — Debrief Completion &amp; Action Planning</div>
+          <div class="goal-timing">April &amp; May · Shared with Marissa</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~50%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Canvas is the highest-pressure team this week. If pulse data shows engineering engagement dips, Canvas is the most likely source. Prioritize Canvas debrief timing accordingly.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Practice Leads AI Adoption Program</div>
+          <div class="goal-timing">TBC · Shared with Melanie · Not Started</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:5%;background:#E24B4A"></div></div>
+          <div class="progress-label">Not Started — needs kickoff this week</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">ML team launched Pipeline Designer this week — the clearest internal proof point for this program. Andy Thompson is a natural first Practice Lead. Use this launch moment to get buy-in from leadership and kick off the program brief.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Establish New PBP Process (Monthly Manager Meetings + Dashboard)</div>
+          <div class="goal-timing">Ongoing · Monthly cadence · Shared with Marissa</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~40%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Three engineering leads (Stanley, Evan, Justin) are at inflection points simultaneously. Monthly cadence isn't optional right now — it's the minimum frequency needed to stay ahead of what's moving.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="goal-grid-2" style="margin-top:12px">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">PBP Onboarding (Courtney)</div>
+          <div class="goal-timing">April &amp; May</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~50%</div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-warn">Low</span></div>
+          <div class="goal-title">SHRM Conference &amp; Takeaways / Next Steps</div>
+          <div class="goal-timing">June · Once · Learnings could influence Q3</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:10%;background:#ccc"></div></div>
+          <div class="progress-label">Not Started — June timing</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">DAFX Conference (audio ML sourcing) is also in June. Coordinate timing with Liz so P&amp;C conference presence is planned together rather than in silos.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MARISSA -->
+  <div class="person-block">
+    <div class="person-header">
+      <div class="person-avatar">Ma</div>
+      <div><div class="person-name">Marissa Chalin</div><div class="person-role">People Business Partner</div></div>
+    </div>
+
+    <div class="goal-grid">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Engagement Survey Debrief + Action Planning</div>
+          <div class="goal-timing">April &amp; May · Shared with Courtney</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~50%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Instruments BU All Hands Apr 27 may surface org or engagement issues. Stay close to Stanley post-event and flag anything relevant to the debrief process for that BU.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-red">Not Started</span></div>
+          <div class="goal-title">PRP Feedback Collection</div>
+          <div class="goal-timing">Post-review cycle · Shared with Courtney</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:5%;background:#E24B4A"></div></div>
+          <div class="progress-label">Not Started — needs to begin</div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-green">Active BAU</span></div>
+          <div class="goal-title">Monthly Manager 1:1s / Department Support</div>
+          <div class="goal-timing">Ongoing · 40+ hrs/month · Marketing, PMM on Product</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:75%;background:#1D9E75"></div></div>
+          <div class="progress-label">Active — ongoing</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Mark Thomas (VP PMM) is publicly active on Splice's AI brand positioning — check-in on his team is warranted given the Variations launch comms load. Canvas and Flow teams are also under execution pressure this week — both are good listening tour targets.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="goal-grid-2" style="margin-top:12px">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · Shared</div>
+          <div class="goal-title">Formalize Coach Pilot</div>
+          <div class="goal-timing">In Progress · Culture Amp Manager Training</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:35%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~35%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Courtney's Practice Leads AI program and the Coach pilot are both manager-facing development tracks. Align cadence so managers aren't receiving two separate asks in the same month.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · Shared</div>
+          <div class="goal-title">PBP Process (Monthly Manager Meetings)</div>
+          <div class="goal-timing">Ongoing · Shared with Courtney</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~40%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Flow/Aura PMF result this week may generate a fast headcount ramp. Add Justin Sun to the monthly manager monitoring list now, before the pressure kicks in.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MELANIE -->
+  <div class="person-block">
+    <div class="person-header">
+      <div class="person-avatar">Me</div>
+      <div><div class="person-name">Melanie</div><div class="person-role">People Operations</div></div>
+    </div>
+
+    <div class="goal-grid">
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Deel Adoption</div>
+          <div class="goal-timing">Shared with Liz · TA team trained · contractor FAQs · all contractor type workflows</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:55%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — ~55%</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">INSTRUMENT BU is growing — any contractor-based hires (especially UK/SFA side) will go through Deel. Confirm that contractor workflow covers UK-based contractors specifically, ahead of the Apr 27 All Hands.</div></div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-goal">High</span></div>
+          <div class="goal-title">Deel Knowledge Hub &amp; Infrastructure Buildout</div>
+          <div class="goal-timing">April–May · Notion FAQs, written workflows, Tango recordings, Slack automations</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#BA7517"></div></div>
+          <div class="progress-label">In Progress — on track</div>
+        </div>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-card-inner">
+          <div class="goal-num">Q2 Initiative · <span class="tag tag-red">Not Started</span></div>
+          <div class="goal-title">Practice Leads AI Adoption Program</div>
+          <div class="goal-timing">TBC · Shared with Courtney</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:5%;background:#E24B4A"></div></div>
+          <div class="progress-label">Not Started — kickoff needed</div>
+          <div class="signal-box"><div class="signal-label">📡 Business signal</div><div class="signal-text">Sequoia AI Enablement (your backlog) + Splice's internal Pipeline Designer launch = good moment to align the Sequoia AI soft launch plan with the broader Practice Leads narrative. Two AI adoption tracks can reinforce each other.</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════ STRATEGIC FOCUS ══════════════ -->
+<div id="tab-strategy" class="tab-content">
+<div class="body">
+
+  <div class="spotlight">
+    <div class="spotlight-label">What this page does</div>
+    Five specific recommendations for this week — grounded in what the business is actually doing right now, mapped to named owners, and tied directly to Q2 goals. Not generic best practices — specific actions, timed to this moment.
+  </div>
+
+  <div class="section-title">This week's strategic recommendations</div>
+
+  <!-- REC 1 -->
+  <div class="rec-card">
+    <div class="rec-header">
+      <div class="rec-number">1</div>
+      <div>
+        <div class="rec-title">Liz: schedule three engineering listening tours before Friday — the windows won't align again</div>
+        <div class="rec-meta">Owner: <strong>Liz</strong> · <span class="tag tag-red">Time-sensitive</span> · Advances: <span class="tag tag-goal">TA Business Acumen</span> <span class="tag tag-goal">Hiring Rituals</span></div>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="rec-grid">
+        <div>
+          <div class="rec-col-label">Three windows open simultaneously</div>
+          <div class="rec-item"><div class="dot a"></div><div><strong>Stanley Gabriel (INSTRUMENT)</strong> — All Hands Apr 27, operating model changes incoming. Reach out post-event.</div></div>
+          <div class="rec-item"><div class="dot a"></div><div><strong>Evan Dhillon (Canvas)</strong> — Post-May 1 roadmap drafting just kicked off. Natural "what's coming" window.</div></div>
+          <div class="rec-item"><div class="dot a"></div><div><strong>Justin Sun (Flow)</strong> — PMF result this week. If threshold hit, headcount conversation likely in May.</div></div>
+        </div>
+        <div>
+          <div class="rec-col-label">Why this is the moment</div>
+          <div class="rec-item"><div class="dot"></div><div>All three leads are thinking about "what's next" rather than heads-down execution — that's the window</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Being in these conversations before recs open positions TA as a planning partner, not a reactive service</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Simultaneously feeds engineering team profiles (TA Business Acumen) and Marissa's HRBP cadence</div></div>
+        </div>
+      </div>
+      <div class="action-box">
+        <div class="action-box-label">Recommended actions</div>
+        <div class="action-item"><div class="action-num">1.</div><div>Stanley: "Congrats on the All Hands — would love 20 minutes in May to understand how INSTRUMENT is evolving and what you might need from a talent perspective."</div></div>
+        <div class="action-item"><div class="action-num">2.</div><div>Evan (post May 1): "As you shift into the next roadmap phase, I want to make sure I understand what's coming before you need to hire. Can we grab 20 minutes?"</div></div>
+        <div class="action-item"><div class="action-num">3.</div><div>Justin (now or post-PMF): "Tracking the Soundcheck data — ready to support quickly if you need to scale the team. Want to grab time?"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REC 2 -->
+  <div class="rec-card">
+    <div class="rec-header">
+      <div class="rec-number">2</div>
+      <div>
+        <div class="rec-title">Marissa: do HRBP check-ins with Canvas and Flow leads before and after May 1</div>
+        <div class="rec-meta">Owner: <strong>Marissa</strong> · <span class="tag tag-warn">This week</span> · Advances: <span class="tag tag-goal">PBP Process</span> <span class="tag tag-goal">Manager 1:1s</span></div>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="rec-grid">
+        <div>
+          <div class="rec-col-label">What the business is telling you</div>
+          <div class="rec-item"><div class="dot a"></div><div>Canvas is in 3x/week usability crunch cycles — hard deadline, features cut, sustained team pressure</div></div>
+          <div class="rec-item"><div class="dot a"></div><div>Flow/Aura PMF result this week creates high uncertainty for a small team — scale or stay depends on data coming in now</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Scope cuts under deadline pressure are one of the clearest early attrition signals in engineering</div></div>
+        </div>
+        <div>
+          <div class="rec-col-label">What proactive HRBP presence does</div>
+          <div class="rec-item"><div class="dot"></div><div>Surfaces frustrations before they become exit conversations</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Gives Evan and Justin a safe space during a high-pressure week</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Builds the relationship with Justin before a potential fast scale-up — much easier than establishing trust during a blitz</div></div>
+        </div>
+      </div>
+      <div class="action-box">
+        <div class="action-box-label">Recommended actions</div>
+        <div class="action-item"><div class="action-num">1.</div><div>Reach out to Evan Dhillon this week: "I know May 1 is a big push — wanted to check in and see how the team is doing with the sprint." Keep it informal and supportive, not formal.</div></div>
+        <div class="action-item"><div class="action-num">2.</div><div>Add Justin Sun to your monthly manager monitoring list now. If PMF threshold is hit and team scales, he'll need HRBP support through a fast ramp.</div></div>
+        <div class="action-item"><div class="action-num">3.</div><div>Post-May 1: coordinate a joint debrief with Liz — Marissa on team health, Liz on what's coming in the next roadmap phase. One coordinated touchpoint, not two separate asks.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REC 3 -->
+  <div class="rec-card">
+    <div class="rec-header">
+      <div class="rec-number">3</div>
+      <div>
+        <div class="rec-title">Courtney + Melanie: kick off the Practice Leads Program this week using Pipeline Designer as the anchor case</div>
+        <div class="rec-meta">Owner: <strong>Courtney + Melanie</strong> · <span class="tag tag-warn">Not started — start now</span> · Advances: <span class="tag tag-goal">AI Adoption</span></div>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="rec-grid">
+        <div>
+          <div class="rec-col-label">What the business just gave you</div>
+          <div class="rec-item"><div class="dot g"></div><div>ML team launched Pipeline Designer — Claude Code/Cursor tool letting non-engineers prototype AI features without needing engineering support</div></div>
+          <div class="rec-item"><div class="dot g"></div><div>Splice is actively normalizing agentic AI use across all functions this week — the moment is now</div></div>
+          <div class="rec-item"><div class="dot g"></div><div>This digest itself is a P&amp;C AI workflow — another internal case study for the program</div></div>
+        </div>
+        <div>
+          <div class="rec-col-label">How to use it</div>
+          <div class="rec-item"><div class="dot"></div><div>Andy Thompson (ML) is a natural first Practice Lead — already publicly advocating AI tool adoption</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Melanie's Sequoia AI Enablement and this program can run as two parallel tracks under a single "AI at Splice" narrative</div></div>
+          <div class="rec-item"><div class="dot"></div><div>A program brief with this week's Pipeline Designer launch as the lead story will land well with leadership</div></div>
+        </div>
+      </div>
+      <div class="action-box">
+        <div class="action-box-label">Recommended actions</div>
+        <div class="action-item"><div class="action-num">1.</div><div>Define scope this week: who are the first 3–5 Practice Leads, what's the cadence, what does a lead actually do? Draft a one-page brief to share with leadership for buy-in.</div></div>
+        <div class="action-item"><div class="action-num">2.</div><div>Reach out to Andy Thompson to be the first featured Practice Lead — Pipeline Designer launch makes this a natural, timely ask that won't feel out of nowhere.</div></div>
+        <div class="action-item"><div class="action-num">3.</div><div>Melanie: align Sequoia AI Enablement timing with this program's launch — present both as part of a unified AI enablement story, not two separate P&amp;C initiatives.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REC 4 -->
+  <div class="rec-card">
+    <div class="rec-header">
+      <div class="rec-number">4</div>
+      <div>
+        <div class="rec-title">Liz + Courtney: draft the Talent Brand AI section now — the Variations launch window is open for 2–3 more weeks</div>
+        <div class="rec-meta">Owner: <strong>Liz</strong> · <span class="tag tag-warn">Act before it ages</span> · Advances: <span class="tag tag-goal">Talent Brand</span> <span class="tag tag-goal">Employer Brand Brochure</span></div>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="rec-grid">
+        <div>
+          <div class="rec-col-label">What's available right now</div>
+          <div class="rec-item"><div class="dot g"></div><div>Variations + Magic Fit launched with industry press — first attribution model built into a GenAI music tool</div></div>
+          <div class="rec-item"><div class="dot g"></div><div>Mark Thomas (VP PMM) posted a public, quotable LinkedIn statement on AI ethics and creator compensation this week</div></div>
+          <div class="rec-item"><div class="dot g"></div><div>Responsible AI Principles (May 2025) + Variations (April 2026) = a provable, specific brand story no competitor can replicate</div></div>
+        </div>
+        <div>
+          <div class="rec-col-label">Why this week specifically</div>
+          <div class="rec-item"><div class="dot"></div><div>Q2 brochure deadline is end of June — 8 weeks. The content needs to be drafted before it ages.</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Brand/Comms are more responsive to content requests during launch momentum than 3 weeks after</div></div>
+          <div class="rec-item"><div class="dot"></div><div>The AI ethics story is specific and differentiated — waiting risks it becoming table stakes rather than a differentiator</div></div>
+        </div>
+      </div>
+      <div class="action-box">
+        <div class="action-box-label">Recommended actions</div>
+        <div class="action-item"><div class="action-num">1.</div><div>Draft the "Who We Are / How We Build AI" section of the brochure this week. Frame it around Mark Thomas' LinkedIn statement, the attribution model, and the Responsible AI Principles. Share with Mark for a quick gut-check.</div></div>
+        <div class="action-item"><div class="action-num">2.</div><div>Connect with Brand/Comms for updated asset package — tie your request to the Variations launch momentum so it's seen as launch-aligned, not a separate ask.</div></div>
+        <div class="action-item"><div class="action-num">3.</div><div>Coordinate with Courtney: the AI brand story and the engagement/culture narrative should be consistent across the brochure and any L&amp;D-facing materials. Build once, use across both.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REC 5 -->
+  <div class="rec-card">
+    <div class="rec-header">
+      <div class="rec-number">5</div>
+      <div>
+        <div class="rec-title">Melanie: confirm UK onboarding is ready to activate — INSTRUMENT All Hands may trigger an immediate need</div>
+        <div class="rec-meta">Owner: <strong>Melanie</strong> · <span class="tag tag-warn">This week</span> · Advances: <span class="tag tag-goal">Operations &amp; UK Integration</span></div>
+      </div>
+    </div>
+    <div class="rec-body">
+      <div class="rec-grid">
+        <div>
+          <div class="rec-col-label">What the business is telling you</div>
+          <div class="rec-item"><div class="dot a"></div><div>Instruments BU All Hands Apr 27 — operating model refinements incoming for Splice's most UK-heavy BU</div></div>
+          <div class="rec-item"><div class="dot"></div><div>LABS → INSTRUMENT migration is a major Q2 initiative with growth targets — new roles may follow quickly</div></div>
+          <div class="rec-item"><div class="dot"></div><div>SFA (Spitfire Audio) is London-based — any new INSTRUMENT roles are most likely UK-based</div></div>
+        </div>
+        <div>
+          <div class="rec-col-label">What P&amp;C should have ready</div>
+          <div class="rec-item"><div class="dot"></div><div>A new UK role request could arrive from Stanley or Elliot as early as this week or next</div></div>
+          <div class="rec-item"><div class="dot"></div><div>If UK onboarding process has gaps, it becomes a blocker to a fast hire — and the business is moving fast</div></div>
+          <div class="rec-item"><div class="dot"></div><div>Deel's UK contractor workflow also needs to be confirmed given potential INSTRUMENT contract hires</div></div>
+        </div>
+      </div>
+      <div class="action-box">
+        <div class="action-box-label">Recommended actions</div>
+        <div class="action-item"><div class="action-num">1.</div><div>Confirm with Grace and IT that UK onboarding/offboarding is in a ready state for a fast-turnaround hire. Close any remaining dependencies before Apr 27.</div></div>
+        <div class="action-item"><div class="action-num">2.</div><div>Confirm Deel's UK contractor workflow is scoped and documented — specifically for SFA-adjacent contractor roles that may emerge from the All Hands.</div></div>
+        <div class="action-item"><div class="action-num">3.</div><div>Loop Liz in immediately after Apr 27 — if org changes surface that suggest new roles, TA needs to be in the conversation before Alejandro's hiring cap becomes a constraint.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div class="footer-left">
+    Sources: <a href="https://splicechat.slack.com/archives/C0ALZ5QLCF6">#weeknotes</a> · <a href="https://splicechat.slack.com/archives/C0904UPQYRL">#weeknotes-instruments</a> · <a href="https://docs.google.com/spreadsheets/d/1dLQPlipeteNhAFWFL6-M8hErrOr_IyT5aUwKLMPUZHM">P&amp;C 2026 Planning (Drive)</a><br>
+    Auto-generated weekly · Splice People &amp; Culture
+  </div>
+  <div><span class="confidential">P&amp;C team only</span></div>
+</div>
+
+</div>
+
+<script>
+function switchTab(name,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+</body>
+</html>
